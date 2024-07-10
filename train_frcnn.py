@@ -15,7 +15,7 @@ from keras.models import Model
 from keras_frcnn import config, data_generators
 from keras_frcnn import losses as losses
 import keras_frcnn.roi_helpers as roi_helpers
-from keras.utils import generic_utils
+from keras.utils import Progbar
 
 sys.setrecursionlimit(40000)
 
@@ -171,7 +171,7 @@ vis = True
 
 for epoch_num in range(num_epochs):
 
-	progbar = generic_utils.Progbar(epoch_length)
+	progbar = Progbar(epoch_length)
 	print(f'Epoch {epoch_num + 1}/{num_epochs}')
 
 	while True:
