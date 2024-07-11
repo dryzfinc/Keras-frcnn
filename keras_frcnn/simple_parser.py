@@ -10,8 +10,6 @@ def get_data(input_path, imageset='trainval'):
 	class_mapping = {}
 
 	visualise = True
-
-	all_imgs[filename]['imageset'] = imageset
 	
 	with open(input_path,'r') as f:
 
@@ -49,6 +47,8 @@ def get_data(input_path, imageset='trainval'):
 		all_data = []
 		for key in all_imgs:
 			all_data.append(all_imgs[key])
+
+		all_imgs[filename]['imageset'] = imageset
 		
 		# make sure the bg class is last in the list
 		if found_bg:
