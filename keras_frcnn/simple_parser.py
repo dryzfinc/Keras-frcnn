@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
 
-def get_data(input_path):
+def get_data(input_path, imageset='trainval'):
 	found_bg = False
 	all_imgs = {}
 
@@ -10,6 +10,8 @@ def get_data(input_path):
 	class_mapping = {}
 
 	visualise = True
+
+	all_imgs[filename]['imageset'] = imageset
 	
 	with open(input_path,'r') as f:
 
