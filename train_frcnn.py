@@ -15,6 +15,7 @@ from keras.models import Model
 from keras_frcnn import config, data_generators
 from keras_frcnn import losses as losses
 import keras_frcnn.roi_helpers as roi_helpers
+from keras_frcnn.simple_parser import get_data
 from keras.utils import Progbar
 
 sys.setrecursionlimit(40000)
@@ -42,12 +43,12 @@ parser.add_option("--input_weight_path", dest="input_weight_path", help="Input p
 if not options.train_path:   # if filename is not given
 	parser.error('Error: path to training data must be specified. Pass --path to command line')
 
-if options.parser == 'pascal_voc':
-	from keras_frcnn.pascal_voc_parser import get_data
-elif options.parser == 'simple':
-	from keras_frcnn.simple_parser import get_data
-else:
-	raise ValueError("Command line option parser must be one of 'pascal_voc' or 'simple'")
+# if options.parser == 'pascal_voc':
+# 	from keras_frcnn.pascal_voc_parser import get_data
+# elif options.parser == 'simple':
+# 	from keras_frcnn.simple_parser import get_data
+# else:
+# 	raise ValueError("Command line option parser must be one of 'pascal_voc' or 'simple'")
 
 # pass the settings from the command line, and persist them in the config object
 C = config.Config()
