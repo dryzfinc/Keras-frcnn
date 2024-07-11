@@ -19,16 +19,16 @@ def augment(img_data, config, augment=True):
 		if config.use_horizontal_flips and np.random.randint(0, 2) == 0:
 			img = cv2.flip(img, 1)
 			for bbox in img_data_aug['bboxes']:
-				x1 = bbox['x1']
-				x2 = bbox['x2']
+				x1 = bbox['0']
+				x2 = bbox['1']
 				bbox['x2'] = cols - x1
 				bbox['x1'] = cols - x2
 
 		if config.use_vertical_flips and np.random.randint(0, 2) == 0:
 			img = cv2.flip(img, 0)
 			for bbox in img_data_aug['bboxes']:
-				y1 = bbox['y1']
-				y2 = bbox['y2']
+				y1 = bbox['2']
+				y2 = bbox['3']
 				bbox['y2'] = rows - y1
 				bbox['y1'] = rows - y2
 
