@@ -11,7 +11,7 @@ def get_data(input_path, imageset='trainval'):
 
 	visualise = True
 	
-	with open(input_path,'r') as f:
+	with open(input_path,'r', encoding = 'latin-1') as f:
 
 		print('Parsing annotation files')
 
